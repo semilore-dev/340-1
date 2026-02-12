@@ -1,0 +1,24 @@
+scala> :load problem1.scala
+
+scala> problem1.shuffle(List(1,2,3), List(4,5,6))
+res0: List[Int] = List(1, 4, 2, 5, 3, 6)
+
+scala> problem1.split(List(1,2,3,4,5,6), 3)
+res1: List[List[Int]] = List(List(1, 2, 3), List(4, 5, 6))
+
+scala> problem1.outshuffle(List(1,2,3,4))
+res2: List[Int] = List(1, 3, 2, 4)
+
+scala> problem1.inshuffle(List(1,2,3,4))
+res3: List[Int] = List(3, 1, 4, 2)
+
+scala> problem1.nshuffle(problem1.outshuffle[Int], 2, List(1,2,3,4))
+res4: List[Int] = List(1, 2, 3, 4)
+
+scala> val deck = problem1.makeDeck(52)
+scala> problem1.howManyShuffles(problem1.outshuffle[Int], deck, deck)
+res5: Int = 8
+
+scala> val reversed = problem1.reverseList(deck)
+scala> problem1.howManyShuffles(problem1.inshuffle[Int], deck, reversed)
+res6: Int = 26
