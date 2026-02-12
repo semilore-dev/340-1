@@ -19,6 +19,18 @@ object problem1:
             case first :: second :: Nil => List(x :: first, second)
             case _ => List(Nil, Nil)
 
+  def length[A](lst: List[A]): Int =
+    lst match
+      case Nil => 0
+      case _ :: xs => 1 + length(xs)
+
+  def outshuffle[A](deck: List[A]): List[A] =
+    val n: Int = length(deck) / 2
+    val parts: List[List[A]] = split(deck, n)
+    parts match
+      case left :: right :: Nil => shuffle(left, right)
+      case _ => Nil
+
 
 
 
